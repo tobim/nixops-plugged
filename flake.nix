@@ -13,7 +13,7 @@
       pkgs            = import nixpkgs { inherit system; overlays = [poetry2nix.overlay]; };
       nixopsPluggable = import ./nixops-pluggable.nix pkgs;
 
-      inherit (nixopsPluggable) overrides nixops;
+      inherit (nixopsPluggable) nixops overrides;
 
     in rec {
 
@@ -28,6 +28,7 @@
           ps.nixops-gcp
           ps.nixops-digitalocean
           ps.nixops-hetznercloud
+          ps.nixops-libvirtd
           ps.nixopsvbox
         ]);
         # A nixops with each plugin for users who use a single provider.
@@ -36,9 +37,10 @@
         nixops-gcp          = nixops.withPlugins (ps: [ps.nixops-gcp]);
         nixops-digitalocean = nixops.withPlugins (ps: [ps.nixops-digitalocean]);
         nixops-hetznercloud = nixops.withPlugins (ps: [ps.nixops-hetznercloud]);
+        nixops-libvirtd     = nixops.withPlugins (ps: [ps.nixops-libvirtd]);
         nixopsvbox          = nixops.withPlugins (ps: [ps.nixopsvbox]);
       };
-      
+
       lib.withPlugins = nixops.withPlugins;
 
       devShell = pkgs.mkShell {
@@ -50,7 +52,6 @@
           })
         ];
       };
-
 
     });
 }

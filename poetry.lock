@@ -48,7 +48,7 @@ crt = ["awscrt (==0.11.15)"]
 
 [[package]]
 name = "certifi"
-version = "2020.12.5"
+version = "2021.5.30"
 description = "Python package for providing Mozilla's CA Bundle."
 category = "main"
 optional = false
@@ -144,6 +144,14 @@ python-versions = ">=2.7"
 docs = ["sphinx", "jaraco.packaging (>=3.2)", "rst.linker (>=1.9)"]
 testing = ["coverage (<5)", "pytest (>=3.5,!=3.7.3)", "pytest-checkdocs (>=1.2.3)", "pytest-flake8", "pytest-black-multipy", "pytest-cov", "ecdsa", "feedparser", "numpy", "pandas", "pymongo", "sklearn", "sqlalchemy", "enum34", "jsonlib"]
 "testing.libs" = ["demjson", "simplejson", "ujson", "yajl"]
+
+[[package]]
+name = "libvirt-python"
+version = "7.3.0"
+description = "The libvirt virtualization API python binding"
+category = "main"
+optional = false
+python-versions = "*"
 
 [[package]]
 name = "nixops"
@@ -247,6 +255,25 @@ type = "git"
 url = "https://github.com/lukebfox/nixops-hetznercloud.git"
 reference = "master"
 resolved_reference = "af807da54b4a56c0198b3052523997db5b478d0f"
+
+[[package]]
+name = "nixops-virtd"
+version = "1.0"
+description = "NixOps plugin for virtd"
+category = "main"
+optional = false
+python-versions = "^3.7"
+develop = false
+
+[package.dependencies]
+libvirt-python = "^7.3"
+nixops = "branch master"
+
+[package.source]
+type = "git"
+url = "https://github.com/teto/nixops-libvirtd.git"
+reference = "flake"
+resolved_reference = "5f211b0d2f725b07d3e1bbb5f260c82825445f3f"
 
 [[package]]
 name = "nixopsvbox"
@@ -410,7 +437,7 @@ socks = ["PySocks (>=1.5.6,!=1.5.7,<2.0)"]
 [metadata]
 lock-version = "1.1"
 python-versions = "~3.8"
-content-hash = "29cc9b13975124bce25d0e5443b6951462c99035b1a3f28f841311b308933e33"
+content-hash = "92d62130d7b7668b7b876c021f80f5857cb477e0f263ec59c4e32f1053611668"
 
 [metadata.files]
 apache-libcloud = [
@@ -430,8 +457,8 @@ botocore = [
     {file = "botocore-1.20.84.tar.gz", hash = "sha256:bc59eb748fcb07835613ebea6dcc2600ae1a8be0fae30e40b9c1e81b73262296"},
 ]
 certifi = [
-    {file = "certifi-2020.12.5-py2.py3-none-any.whl", hash = "sha256:719a74fb9e33b9bd44cc7f3a8d94bc35e4049deebe19ba7d8e108280cfd59830"},
-    {file = "certifi-2020.12.5.tar.gz", hash = "sha256:1a4995114262bffbc2413b159f2a1a480c969de6e6eb13ee966d470af86af59c"},
+    {file = "certifi-2021.5.30-py2.py3-none-any.whl", hash = "sha256:50b1e4f8446b06f41be7dd6338db18e0990601dce795c2b1686458aa7e8fa7d8"},
+    {file = "certifi-2021.5.30.tar.gz", hash = "sha256:2bbf76fd432960138b3ef6dda3dde0544f27cbf8546c458e60baf371917ba9ee"},
 ]
 cffi = [
     {file = "cffi-1.14.5-cp27-cp27m-macosx_10_9_x86_64.whl", hash = "sha256:bb89f306e5da99f4d922728ddcd6f7fcebb3241fc40edebcb7284d7514741991"},
@@ -508,11 +535,15 @@ jsonpickle = [
     {file = "jsonpickle-2.0.0-py2.py3-none-any.whl", hash = "sha256:c1010994c1fbda87a48f8a56698605b598cb0fc6bb7e7927559fc1100e69aeac"},
     {file = "jsonpickle-2.0.0.tar.gz", hash = "sha256:0be49cba80ea6f87a168aa8168d717d00c6ca07ba83df3cec32d3b30bfe6fb9a"},
 ]
+libvirt-python = [
+    {file = "libvirt-python-7.3.0.tar.gz", hash = "sha256:676c260ddb365120404e611a38c514045ef1af1a7fede15c1fc02d0f8241f696"},
+]
 nixops = []
 nixops-aws = []
 nixops-digitalocean = []
 nixops-gcp = []
 nixops-hetznercloud = []
+nixops-virtd = []
 nixopsvbox = []
 nixos-modules-contrib = []
 pluggy = [

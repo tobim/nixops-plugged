@@ -47,14 +47,15 @@ devShell = pkgs.mkShell {
 
 | Plugins | Included |
 |:---|:---:|
-| [AWS][1]           | :heavy_check_mark: |
-| [DigitalOcean][2]  | :heavy_check_mark: |
-| [GCE][3]           | :heavy_check_mark: |
-| [Hetzner Cloud][4] | :heavy_check_mark: |
-| [VBox][5]          | :heavy_check_mark: |
-| [Hetzner Robot][6] | :x: |
-| [Proxmox][7]       | :x: |
-| [Virtd][8]         | :x: |
+| [AWS][aws]          | :heavy_check_mark: |
+| [DigitalOcean][do]  | :heavy_check_mark: |
+| [GCE][gcp]          | :heavy_check_mark: |
+| [Hetzner Cloud][hc] | :heavy_check_mark: |
+| [Virtd][virtd]      | :heavy_check_mark: |
+| [VBox][vbox]        | :heavy_check_mark: |
+| [Hetzner Robot][hr] | :x: |
+| [Proxmox][proxmox]  | :x: |
+
 
 Adding new plugins goes like this:
 ```bash

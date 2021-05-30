@@ -76,23 +76,12 @@ let
       });
     };
 
-    # These are included in the latest poetry2nix overlay.
-
-    jsonpickle = prev.jsonpickle.overridePythonAttrs (old: {
-      nativeBuildInputs = old.nativeBuildInputs ++ [final.toml];
-    });
-    # https://github.com/nix-community/poetry2nix/issues/218
-    packaging = prev.packaging.overridePythonAttrs({buildInputs ? [], ...}: {
+    libvirt-python = prev.libvirt-python.overridePythonAttrs({ nativeBuildInputs ? [], ... }: {
       format = "pyproject";
-      buildInputs = buildInputs ++ [ final.flit-core ];
+      nativeBuildInputs = nativeBuildInputs ++ [ pkgs.pkgconfig ];
+      propagatedBuildInputs = [ pkgs.libvirt ];
     });
-    # https://github.com/nix-community/poetry2nix/issues/208
-    #typeguard = prev.typeguard.overridePythonAttrs (old: {
-    #  postPatch = ''
-    #    substituteInPlace setup.py \
-    #      --replace 'setup()' 'setup(version="${old.version}")'
-    #  '';
-    #});
+
 
   });
 
